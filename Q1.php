@@ -50,14 +50,11 @@
       html, body { width: 100%; height: 100%; overflow: hidden; background-color:rgba(55, 0, 255, 0.397);}
     </style>
     <script>
-      var formInitializationTime;
-      $('form input').bind('keypress change click', function () {
-          if (!formInitializationTime) formInitializationTime = new Date();
-      });
-
-      $('form').bind('submit', function () {
-          document.querySelector('input.duration').value = new Date() - formInitializationTime;
-      });
+      var formInitializationTime = new Date();
+      function submitDuration() {
+	    formInitializationTime = new Date() - formInitializationTime;
+	    console.log(formInitializationTime);
+	}
       <?php 
       echo "Hello";
       echo("<script>document.write(at1);</script>");
@@ -85,7 +82,7 @@
                 <input type="radio" name="a1" value="Male" class="form-control:focus" required />Male 
               </div>
               <div id="home" class="flex-center flex-column">
-                <button class="btn btn-primary btn-block" id="submit" name="submit">Next</button>
+                <button class="btn btn-primary btn-block" id="submit" name="submit" onclick="submitDuration()">Next</button>
               </div>
             </form>
           </div>

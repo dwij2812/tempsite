@@ -60,7 +60,7 @@
       });
       <?php 
       echo "Hello";
-      echo("<script>document.write('at1');</script>");
+      echo("<script>document.write(at1);</script>");
       ?>
     </script>
   </head>

@@ -13,7 +13,7 @@
     
     $t2 = (time() + 1000);
     echo($t2 . "<br>");
-    $at1="<script>document.write(formInitializationTime)</script>";
+    $at1 = $_POST['timeTaken'];
     $str="INSERT INTO answer "."(name,a1,at1) "."VALUES ('$name','$a1','$at1')";
     $result=mysqli_query($con,$str);
     header("location:Q2.php");
@@ -52,7 +52,8 @@
 	      formInitializationTime = new Date() - formInitializationTime;
 	      console.log(formInitializationTime);
 	    }
-      document.write(new Date().getTime() / 1000);
+      	document.write(new Date().getTime() / 1000);
+	    document.qform.timeTaken.value = formInitializationTime;
     </script>
   </head>
   <body >
@@ -67,8 +68,9 @@
 				<div class="box-wrapper">				
         <div class="box box-border">
           <div class="box-body">
-            <form method="post" action="Q1.php" enctype="multipart/form-data">
+            <form method="post" action="Q1.php" enctype="multipart/form-data" name="qform">
               <div class="form-group">
+		<input type="hidden" name="time-taken" id="timeTaken" value="">
                 <input type="radio" name="a1" value="Male" class="form-control:focus" required />Male <br>
                 <input type="radio" name="a1" value="Male" class="form-control:focus" required />Male <br>
                 <input type="radio" name="a1" value="Male" class="form-control:focus" required />Male <br>
